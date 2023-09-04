@@ -27,14 +27,18 @@
                                     <th>Category</th>
                                     <th>Image</th>
                                     <th>Date Modified</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 {{#each garment_list}} 
                                 {{!-- {{#each this}} {{@key}}: {{this}} {{/each}}  --}}
                                     <tr>
-                                        <td>placeholder</td>
+                                        <td>{{this.garment_name}}</td>
                                         <td>{{this.category_id}}</td>
                                         <td>{{this.image_url}}</td>
                                         <td>{{this.date_updated}}</td>
+                                        <td>Edit</td>
+                                        <td>Delete</td>
                                     </tr>
                                 {{/each}}
                             </table>
