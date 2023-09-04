@@ -10,7 +10,7 @@ const hostname = '127.0.0.1';
 
 
 const mysql = require('mysql');
-const connection = mysql.createConnection(process.env, JAWSDB_URL);
+const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 connection.connect();
 
