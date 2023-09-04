@@ -43,10 +43,10 @@ app.post('/', (req, res) => {
 });
 
 app.get('/garments', (req, res) => {
-    connection.query('SELECT * FROM categories;', function(err, rows, fields) {
+    connection.query('SELECT * FROM garments;', function(err, rows, fields) {
         if (err) throw err;
       
-        console.log('Category ID: %d. Category name: %s', rows[0].category_id, rows[0].category);
+        console.log('Garment ID: %d. User ID: %d. Image URL: %s. Category ID: %d. Date updated: %s', rows[0].garment_id, rows[0].user_id, rows[0].image_url, rows[0].category_id, rows[0].date_updated);
       });
 
     res.render('garments', {tab: 'view'});
