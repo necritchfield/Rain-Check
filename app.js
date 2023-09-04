@@ -14,12 +14,6 @@ const connection = mysql.createConnection(process.env, JAWSDB_URL);
 
 connection.connect();
 
-/* connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-    if (err) throw err;
-  
-    console.log('The solution is: ', rows[0].solution);
-  }); */
-
 // handlebars setup
 app.engine('hbs', engine({defaultLayout: "", layoutsDir: "", partialsDir: "partials", extname: "hbs", helpers: require('./handlebars-helpers')}));
 app.set('view engine', 'hbs');
@@ -51,6 +45,12 @@ app.post('/', (req, res) => {
 });
 
 app.get('/garments', (req, res) => {
+    connection.query('SELECT * FROM categories;', function(err, rows, fields) {
+        if (err) throw err;
+      
+        console.log('The solution is: ', rows[0].solution);
+      });
+
     res.render('garments', {tab: 'view'});
 });
 
