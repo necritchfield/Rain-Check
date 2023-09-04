@@ -28,11 +28,16 @@
                                     <th>Image</th>
                                     <th>Date Modified</th>
                                 </tr>
-                            </table>
-                            {{#each garment_list}} 
+                                {{#each garment_list}} 
                                 {{!-- {{#each this}} {{@key}}: {{this}} {{/each}}  --}}
-                                {{this.image_url}}
-                            {{/each}}
+                                    <tr>
+                                        <td>placeholder</td>
+                                        <td>{{this.category_id}}</td>
+                                        <td>{{this.image_url}}</td>
+                                        <td>{{this.date_updated}}</td>
+                                    </tr>
+                                {{/each}}
+                            </table>
                         </div>
                     {{/if}}
                     {{#if (eq tab 'add')}}
