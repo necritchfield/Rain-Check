@@ -1,0 +1,1 @@
+SELECT * FROM garments ORDER BY garment_id

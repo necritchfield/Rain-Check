@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Rain Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    {{> header}}
+    {{> menubar}}
+    {{#if location}}
+        <div class="main">
+            <h1 id="weather-header">Today's weather for: {{location}}</h1>
+            <div class="grid-container">
+                <div class="grid-item1" id="high-temp">High Temperature: {{high}}&deg;</div>
+                <div class="grid-item2" id="low-temp">Low Temperature: {{low}}&deg;</div>
+                <div class="grid-item3" id="prec-chance">Precipitation Chance: {{prec}}%</div>
+                <div class="rec-text">
+                    {{recommendation}}
+                </div>
+            </div>
+            <div class="another-rec">
+                <a href="/">Want another recommendation?</a>
+            </div>
+        </div>
+    {{else}}
+        <h1 id="title">Rain Check</h1>
+        <div class="rec-text">
+            Enter your location below to receive a clothing recommendation based on today's weather.<br><br>
+            <form action="/" method="POST">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="'Portland, OR,' '97006,' etc." size="25"><br>
+                <input type="submit">
+            </form>
+        </div>
+    {{/if}}
+</body>
+
+</html>
