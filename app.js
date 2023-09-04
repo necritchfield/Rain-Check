@@ -46,7 +46,7 @@ app.get('/garments', (req, res) => {
     connection.query('SELECT * FROM categories;', function(err, rows, fields) {
         if (err) throw err;
       
-        console.log('The solution is: ', rows);
+        console.log('Category ID: %d. Category name: %s', rows[0].category_id, rows[0].category);
       });
 
     res.render('garments', {tab: 'view'});
