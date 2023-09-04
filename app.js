@@ -7,7 +7,6 @@ const { engine } = require('express-handlebars');
 
 const app = express();
 const hostname = '127.0.0.1';
-const port = 3000;
 
 // handlebars setup
 app.engine('hbs', engine({defaultLayout: "", layoutsDir: "", partialsDir: "partials", extname: "hbs", helpers: require('./handlebars-helpers')}));
@@ -18,9 +17,15 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
+
+//app.listen(port, hostname, () => {
+//  console.log(`Server running at http://${hostname}:${port}/`);
+//});
 
 // render main page
 app.get('/', (req, res) => {
