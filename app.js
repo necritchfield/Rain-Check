@@ -43,10 +43,12 @@ app.post('/', (req, res) => {
 });
 
 app.get('/garments', (req, res) => {
-    connection.query('SELECT * FROM garments;', function(err, rows, fields) {
+    let sql = 'SELECT garments.garment_name, categories.category AS category, garments.image_url, garments.date_updated FROM garments INNER JOIN categories ON garments.category_id = categories.category_id;'
+    
+    connection.query(sql, function(err, rows, fields) {
         if (err) throw err;
       
-        console.log('Garment ID: %d. User ID: %d. Image URL: %s. Category ID: %d. Date updated: %s', rows[0].garment_id, rows[0].user_id, rows[0].image_url, rows[0].category_id, rows[0].date_updated);
+        console.log('Garment ID: %d. User ID: %d. Image URL: %s. Category ID: %d. Date updated: %s', rows[0].garment_id, rows[0].user_id, rows[0].image_url, rows[0].category, rows[0].date_updated);
         res.render('garments', {tab: 'view', garment_list: rows})
       });
 
