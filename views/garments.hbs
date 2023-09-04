@@ -29,7 +29,7 @@
                                     <th>Date Modified</th>
                                 </tr>
                             </table>
-                            {{#each garment_list}} {{@key}}: {{this}} {{/each}}
+                            {{#each garment_list}} {{#each this}} {{@key}}: {{this}} {{/each}} {{/each}}
                         </div>
                     {{/if}}
                     {{#if (eq tab 'add')}}
