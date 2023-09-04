@@ -29,10 +29,9 @@
                                     <th>Date Modified</th>
                                 </tr>
                             </table>
-                            
+                            {{#each garment_list}} {{@key}}: {{this}} {{/each}}
                         </div>
                     {{/if}}
-                    {{each garment_list}} {{@key}}: {{this}} {{/each}}
                     {{#if (eq tab 'add')}}
                         <div id="add_garments" class="tabcontent">
                             Add a garment.
