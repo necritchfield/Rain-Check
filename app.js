@@ -47,7 +47,7 @@ app.get('/garments', (req, res) => {
         if (err) throw err;
       
         console.log('Garment ID: %d. User ID: %d. Image URL: %s. Category ID: %d. Date updated: %s', rows[0].garment_id, rows[0].user_id, rows[0].image_url, rows[0].category_id, rows[0].date_updated);
-        res.render('garments', {tab: 'view', garment_list: rows})
+        res.render('garments', {tab: 'view', garment_list: rows[0]})
       });
 
     //res.render('garments', {tab: 'view'});
