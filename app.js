@@ -8,6 +8,18 @@ const { engine } = require('express-handlebars');
 const app = express();
 const hostname = '127.0.0.1';
 
+
+const mysql = require('mysql');
+const connection = mysql.createConnection(process.env, JAWSDB_URL);
+
+connection.connect();
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+  
+    console.log('The solution is: ', rows[0].solution);
+  });
+connection.end();
+
 // handlebars setup
 app.engine('hbs', engine({defaultLayout: "", layoutsDir: "", partialsDir: "partials", extname: "hbs", helpers: require('./handlebars-helpers')}));
 app.set('view engine', 'hbs');
