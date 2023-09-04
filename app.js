@@ -12,8 +12,6 @@ const hostname = '127.0.0.1';
 const mysql = require('mysql');
 const connection = mysql.createConnection(process.env.JAWSDB_URL);
 
-connection.connect();
-
 // handlebars setup
 app.engine('hbs', engine({defaultLayout: "", layoutsDir: "", partialsDir: "partials", extname: "hbs", helpers: require('./handlebars-helpers')}));
 app.set('view engine', 'hbs');
@@ -92,5 +90,3 @@ function generate_recommendation(high) {
     }
     return recommendation;
 }
-
-connection.end();
