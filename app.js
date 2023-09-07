@@ -52,7 +52,7 @@ app.get('/garments', (req, res) => {
 });
 
 app.post('/garments', (req, res) => {
-    console.log(`${req.body}`);
+    console.log(`${req.body.garment_name}`);
 });
 
 function viewTab(tab) {
