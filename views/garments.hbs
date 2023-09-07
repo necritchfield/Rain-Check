@@ -43,6 +43,19 @@
                                 {{/each}}
                             </table>
                         </div>
+                        <div>
+                            <form action="/garments" method="POST">
+                                <label for="garment_name">Name:</label>
+                                <input type="text" id="garment_name"><br>
+                                <label for="garment_category">Category:</label>
+                                <select name="garment_category" id="garment_category">
+                                    <option value="placeholder">Placeholder</option>
+                                </select><br>
+                                <label for="garment_image">Upload an image:</label>
+                                <input type="file" name="garment_image" id="garment_image" accept="image/png, image/jpeg"><br>
+                                <input type="submit">
+                            </form>
+                        </div>
                     {{/if}}
                     {{#if (eq tab 'add')}}
                         <div id="add_garments" class="tabcontent">
